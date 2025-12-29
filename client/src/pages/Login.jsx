@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import "../CSS/Register.css";
 import registerImg from "../assets/react.svg"; // add your illustration here
 import { useAuth } from "../../store/auth.jsx"
+import { toast } from "react-toastify";
 
 export const Login = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ const {storetokenInLS} = useAuth();
         console.log('registration response data', res_data);
 
         storetokenInLS(res_data.token);
-        alert("Login successful!");
+        toast.success("Login successful!");
         setFormData({
           email: "",
           password: "",
@@ -41,7 +42,7 @@ const {storetokenInLS} = useAuth();
         navigate("/");
       }
       else{
-        alert("Login failed! Please check your credentials.");
+        toast.error("Login failed! Please check your credentials.");
       }
       
 

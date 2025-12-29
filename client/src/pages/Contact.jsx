@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../CSS/Contact.css";
 import { useAuth } from '../../store/auth';
+import { toast } from 'react-toastify';
 
 export const Contact = () => {
   const { user } = useAuth();
@@ -33,37 +34,37 @@ export const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+  e.preventDefault();
+  setIsLoading(true);
 
-    try {
-      const response = await fetch('http://localhost:3000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+  try {
+    const response = await fetch('http://localhost:3000/api/form/contact', {  // ✅ Changed endpoint
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      toast.success('Message sent successfully!');
+      setFormData({
+        username: user?.username || '',
+        email: user?.email || '',
+        message: ''
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert('Message sent successfully!');
-        setFormData({
-          username: user?.username || '',
-          email: user?.email || '',
-          message: ''
-        });
-      } else {
-        alert(data.msg || data.message || 'Failed to send message');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
-      setIsLoading(false);
+    } else {
+      toast.error(data.extraDetails || data.message || 'Failed to send message');
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+    toast.error('Failed to send message. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="contact-page">

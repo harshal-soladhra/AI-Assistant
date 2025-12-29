@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import "../CSS/Register.css";
 import registerImg from "../assets/react.svg"; // add your illustration here
 import { useAuth } from "../../store/auth.jsx"
+import { toast } from "react-toastify";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ export const Register = () => {
       console.log('registration response data', res_data);
       if (response.ok) {
         storetokenInLS(res_data.token);
-        alert("Registration successful!");
+        toast.success("Registration successful!");
         setFormData({
           username: "",
           email: "",
@@ -42,7 +43,7 @@ export const Register = () => {
         });
         navigate("/login");
       }else{
-        alert(res_data.extraDetails || res_data.message || "Registration failed!");
+        toast.error(res_data.extraDetails || res_data.message || "Registration failed!");
       }
       
     } catch (error) {

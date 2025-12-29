@@ -8,6 +8,8 @@ import serviceRouter from "./router/service-router.js"
 import connectDB from "./utils/db.js"
 import errorMiddleware from "./middlewares/error-middleware.js";
 
+import adminRouter from "./router/admin-router.js";
+
 dotenv.config();
 
 const app = express()
@@ -28,6 +30,8 @@ connectDB();
 app.use("/api/auth",authRouter)
 app.use("/api/form",contactRouter)
 app.use("/api/data",serviceRouter)
+
+app.use("/api/admin",adminRouter)
 
 
 app.use(errorMiddleware)

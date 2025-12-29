@@ -7,3 +7,5 @@ npm i react-router-dom
 (src/components/Navbar.jsx)
 
 (store/auth.jsx)
+
+(npm i react-toastify)
