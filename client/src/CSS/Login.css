@@ -1,0 +1,83 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0f1a;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Login Box */
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 40px;
+  background: #0b0f1a;
+}
+
+/* Heading */
+.login-box h2 {
+  font-size: 30px;
+  margin-bottom: 22px;
+  border-bottom: 3px solid #6366f1;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Form */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.login-box label {
+  margin: 18px 0 6px;
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* Inputs */
+.login-box input {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.login-box input::placeholder {
+  color: #94a3b8;
+}
+
+.login-box input:focus {
+  border-color: #6366f1;
+}
+
+/* Button */
+.login-box button {
+  margin-top: 28px;
+  padding: 10px;
+  background: #6366f1;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+  background: #4f46e5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-box {
+    padding: 30px 25px;
+  }
+}

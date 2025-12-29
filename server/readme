@@ -1,0 +1,40 @@
+1= server create karo 
+2 cd server => npm init -y
+3 = npm i express
+4 = create server.js file 
+5 = package.json ma types = "type": "module", karvanu 
+6 = npm i nodemon
+
+"dev": "nodemon server.js"
+
+7 = run mate ===> npm run dev 
+
+8 = server
+      -router
+         -auth-router.js
+
+9 = server
+      -controllers
+            -auth-controller.js
+
+10 = npm i mongoose
+11 = server
+      -utils
+         -db.js 
+
+12 = server/models/user-model.js
+
+npm install bcryptjs
+npm i jsonwebtoken
+
+server/validators/auth-validator.js
+
+npm i zod
+
+error-middleware.js
+
+npm i cors
+
+server/store/auth.jsx
+
+server/middlewares/auth-middleware.js

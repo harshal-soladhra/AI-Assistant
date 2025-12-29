@@ -1,0 +1,106 @@
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  background: #0b0f1a;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* LEFT */
+.register-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-left img {
+  width: 80%;
+  max-width: 450px;
+}
+
+/* RIGHT */
+.register-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+/* Heading */
+.register-right h2 {
+  font-size: 30px;
+  margin-bottom: 22px; /* reduced */
+  border-bottom: 3px solid #6366f1;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Form box */
+.register-right form {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;          /* prevent wide box */
+}
+
+/* Labels (more gap) */
+.register-right label {
+  margin: 18px 0 6px;        /* more vertical spacing */
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* Inputs (less height) */
+.register-right input {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 10px 12px;        /* reduced height */
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Placeholder */
+.register-right input::placeholder {
+  color: #94a3b8;
+}
+
+/* Focus */
+.register-right input:focus {
+  border-color: #6366f1;
+}
+
+/* BUTTON (not bulky) */
+.register-right button {
+  margin-top: 28px;
+  padding: 10px;             /* slimmer button */
+  background: #6366f1;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-right button:hover {
+  background: #4f46e5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .register-page {
+    flex-direction: column;
+  }
+
+  .register-left {
+    display: none;
+  }
+
+  .register-right {
+    padding: 40px 25px;
+  }
+}

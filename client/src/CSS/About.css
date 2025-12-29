@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+.about-page {
+  background: #0a0a1e;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO */
+.about-hero {
+  padding: 120px 20px 90px;
+  text-align: center;
+  background: linear-gradient(180deg, #0a0a1e 0%, #0d0d2b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-content {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease;
+}
+
+.about-subtitle {
+  color: #00F5FF;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.about-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  letter-spacing: -2px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00F5FF 0%, #6366F1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-description {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,245,255,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+}
+
+/* ABOUT CONTENT */
+.about-content {
+  padding: 80px 20px;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 245, 255, 0.3);
+}
+
+/* STATS */
+.about-stats {
+  padding: 70px 20px;
+  background: linear-gradient(180deg, #0d0d2b 0%, #0a0a1e 100%);
+}
+
+.stats-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-box h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00F5FF 0%, #6366F1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-box p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+}
+
+/* WHY US */
+.why-us {
+  padding: 80px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-subtitle {
+  color: #00F5FF;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 245, 255, 0.3);
+}
+
+/* VALUES */
+.values {
+  padding: 90px 20px;
+  background: linear-gradient(180deg, #0a0a1e 0%, #020617 100%);
+}
+
+.values-box {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 50px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.values-box ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.values-box li {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ANIMATION */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2.4rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .values-box {
+    padding: 35px 25px;
+  }
+}
