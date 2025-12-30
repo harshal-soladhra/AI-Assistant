@@ -35,4 +35,19 @@ router.get(
   adminController.getAllContacts
 );
 
+router.delete(
+  "/contacts/:id",
+  authMiddleware,
+  adminMiddleware,
+  adminController.deleteContactById
+)
+
+//SERVICES
+
+router.get("/services", authMiddleware, adminMiddleware, adminController.getAllServices);
+router.post("/services", authMiddleware, adminMiddleware, adminController.createService);
+router.delete("/services/:id", authMiddleware, adminMiddleware, adminController.deleteService);
+router.put("/services/:id", authMiddleware, adminMiddleware, adminController.updateService);
+
+
 export default router;
