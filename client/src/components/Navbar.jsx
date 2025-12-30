@@ -36,6 +36,15 @@ export const Navbar = () => {
             <NavLink to="/contact" className="nav-item">
               Contact
             </NavLink>
+
+            <div className="admin-access">
+              {isLoggedIn && user?.isAdmin===false && (
+                <NavLink to="/dashboard" className="nav-item">
+                  Dashboard
+                </NavLink>
+              )}
+            </div>
+
             <div className="admin-access">
               {isLoggedIn && user?.isAdmin && (
                 <NavLink to="/admin" className="nav-item">

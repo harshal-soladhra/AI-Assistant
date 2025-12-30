@@ -10,6 +10,8 @@ import errorMiddleware from "./middlewares/error-middleware.js";
 
 import adminRouter from "./router/admin-router.js";
 
+import userRoutes from "./router/user-router.js";
+
 dotenv.config();
 
 const app = express()
@@ -32,6 +34,8 @@ app.use("/api/form",contactRouter)
 app.use("/api/data",serviceRouter)
 
 app.use("/api/admin",adminRouter)
+
+app.use("/api/user", userRoutes);
 
 
 app.use(errorMiddleware)

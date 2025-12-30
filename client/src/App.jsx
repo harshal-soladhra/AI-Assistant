@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
@@ -17,18 +20,20 @@ import { AdminLayout } from "./components/layouts/Admin-Layout";
 import { AdminUsers } from "./pages/AdminUsers";
 import { AdminContacts } from "./pages/AdminContacts";
 import { AdminServices } from "./pages/AdminServices";
-
-
-import AdminRoute from "./components/AdminRoute";
 import { AdminDashboard } from "./pages/AdminDashboard";
+
+import UserDashboard from "./pages/UserDashboard";
+import AdminRoute from "./components/AdminRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark"/>
 
       <Routes>
-        {/* Public Routes */}
+        {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -37,13 +42,18 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
 
-        {/* 🔐 Protected Admin Routes */}
+        {/* User Dashboard */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<UserDashboard />} />
+        </Route>
+
+        {/* Admin */}
         <Route element={<AdminRoute />}>
           <Route path="/admin" element={<AdminLayout />}>
-            <Route path="dashboard" element={<AdminDashboard />} /> 
+            <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="users" element={<AdminUsers />} />
             <Route path="contacts" element={<AdminContacts />} />
-            <Route path="services" element={<AdminServices />} /> 
+            <Route path="services" element={<AdminServices />} />
           </Route>
         </Route>
 

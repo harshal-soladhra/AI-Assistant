@@ -502,3 +502,13 @@
     font-size: 1.3rem;
   }
 }
+
+.enroll-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.enroll-btn:disabled:hover {
+  box-shadow: 0 4px 15px rgba(0, 245, 255, 0.3);
+}

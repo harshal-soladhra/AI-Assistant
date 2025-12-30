@@ -1,0 +1,153 @@
+.user-dashboard {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(180deg, #0b0f1a, #0a0a1e);
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Heading */
+.user-dashboard h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #00f5ff, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Course Card */
+.course-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 245, 255, 0.15),
+    rgba(99, 102, 241, 0.15)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 245, 255, 0.25);
+}
+
+/* Title */
+.course-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Description */
+.course-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Progress */
+.progress-wrapper {
+  margin-top: 15px;
+}
+
+.progress-label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #c7d2fe;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #00f5ff, #6366f1);
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.status-enrolled {
+  background: rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+}
+
+.status-completed {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+/* Loading */
+.dashboard-loading {
+  padding: 60px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Empty State */
+.no-courses {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-dashboard {
+    padding: 25px;
+  }
+
+  .user-dashboard h1 {
+    font-size: 26px;
+  }
+}

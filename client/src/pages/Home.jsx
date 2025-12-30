@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../CSS/Home.css';
-import heroImage from '../assets/react.svg';
+import heroImage from '../assets/1-front-img.jpg';
+import secImg from '../assets/2-img.jpg';
 
 export const Home = () => {
   return (
@@ -119,7 +120,7 @@ export const Home = () => {
           <div className="cta-image">
             <div className="cta-illustration">
               <div className="cta-circle"></div>
-              <img src={heroImage} alt="Hero Illustration" className="hero-main-image" />
+              <img src={secImg} alt="Hero Illustration" className="hero-main-image hero" />
             </div>
           </div>
           <div className="cta-content">

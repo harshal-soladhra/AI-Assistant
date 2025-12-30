@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../store/auth';
+import { toast } from 'react-toastify';
 import '../CSS/Service.css';
 
 export const Service = () => {
   const [services, setServices] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [enrollingId, setEnrollingId] = useState(null);
+
+  const { isLoggedIn, token } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchServices();
@@ -27,6 +34,45 @@ export const Service = () => {
       setError(error.message);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleEnroll = async (serviceId) => {
+    // Check if user is logged in
+    if (!isLoggedIn) {
+      toast.info('Please login to enroll in courses');
+      navigate('/login');
+      return;
+    }
+
+    setEnrollingId(serviceId);
+
+    try {
+      const response = await fetch('http://localhost:3000/api/user/enroll', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ serviceId })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('Successfully enrolled in the course!');
+        // Navigate to user dashboard
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1000);
+      } else {
+        toast.error(data.message || 'Failed to enroll');
+      }
+    } catch (error) {
+      console.error('Enrollment error:', error);
+      toast.error('Failed to enroll. Please try again.');
+    } finally {
+      setEnrollingId(null);
     }
   };
 
@@ -117,11 +163,19 @@ export const Service = () => {
                       <span className="price-label">Price</span>
                       <span className="price-value">{service.price}</span>
                     </div>
-                    <button className="enroll-btn">
-                      <span>Enroll Now</span>
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
+                    <button 
+                      className="enroll-btn"
+                      onClick={() => handleEnroll(service._id)}
+                      disabled={enrollingId === service._id}
+                    >
+                      <span>
+                        {enrollingId === service._id ? 'Enrolling...' : 'Enroll Now'}
+                      </span>
+                      {enrollingId !== service._id && (
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                      )}
                     </button>
                   </div>
                 </div>
