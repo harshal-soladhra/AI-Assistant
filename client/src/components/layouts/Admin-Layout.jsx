@@ -18,6 +18,11 @@ export const AdminLayout = () => {
         </div>
 
         <nav className="admin-nav">
+          <NavLink to="/admin/dashboard" className="admin-link">
+            <FaUser />
+            <span>Dashboard</span>
+          </NavLink>
+
           <NavLink to="/admin/users" className="admin-link">
             <FaUser />
             <span>Users</span>

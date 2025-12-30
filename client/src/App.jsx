@@ -18,7 +18,9 @@ import { AdminUsers } from "./pages/AdminUsers";
 import { AdminContacts } from "./pages/AdminContacts";
 import { AdminServices } from "./pages/AdminServices";
 
+
 import AdminRoute from "./components/AdminRoute";
+import { AdminDashboard } from "./pages/AdminDashboard";
 
 const App = () => {
   return (
@@ -38,6 +40,7 @@ const App = () => {
         {/* 🔐 Protected Admin Routes */}
         <Route element={<AdminRoute />}>
           <Route path="/admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<AdminDashboard />} /> 
             <Route path="users" element={<AdminUsers />} />
             <Route path="contacts" element={<AdminContacts />} />
             <Route path="services" element={<AdminServices />} /> 

@@ -3,6 +3,8 @@ import adminController from "../controllers/admin-controller.js";
 import authMiddleware from "../middlewares/auth-middleware.js";
 import adminMiddleware from "../middlewares/admin-middleware.js";
 
+import { getAdminDashboardStats } from "../controllers/admin-dashboard-controller.js";
+
 const router = express.Router();
 
 // USERS
@@ -48,6 +50,16 @@ router.get("/services", authMiddleware, adminMiddleware, adminController.getAllS
 router.post("/services", authMiddleware, adminMiddleware, adminController.createService);
 router.delete("/services/:id", authMiddleware, adminMiddleware, adminController.deleteService);
 router.put("/services/:id", authMiddleware, adminMiddleware, adminController.updateService);
+
+
+
+router.get(
+  "/dashboard",
+  authMiddleware,
+  adminMiddleware,
+  getAdminDashboardStats
+);
+
 
 
 export default router;
