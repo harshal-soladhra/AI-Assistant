@@ -1,4 +1,5 @@
 import User from "../models/user-model.js"
+import Contact from "../models/contact-model.js";
 
 export const getAllUsers =async(req,res) =>{
     try {
@@ -17,4 +18,65 @@ export const getAllUsers =async(req,res) =>{
     }
 
 }
-export default { getAllUsers };
+
+export const getAllContacts= async(req,res)=>{
+  try {
+    const contacts = await Contact.find();
+    res.status(200).json({
+      success: true,
+      message: "All contacts retrieved successfully",
+      data: contacts
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+export const deleteUserById = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateUserById = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      req.body,
+      { new: true, runValidators: true }
+    ).select("-password");
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User updated successfully",
+      data: updatedUser,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+
+export default { getAllUsers,getAllContacts,deleteUserById,updateUserById };

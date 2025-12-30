@@ -9,6 +9,9 @@ import {Navbar} from './components/Navbar'
 import { Footer } from './components/Footer'
 import {ErrorPage} from './pages/ErrorPage'
 import {Logout} from './pages/Logout'
+import {AdminLayout} from './components/layouts/Admin-Layout'
+import {AdminUsers} from './pages/AdminUsers'
+import {AdminContacts} from './pages/AdminContacts'
 
 import React from 'react'
 
@@ -25,6 +28,10 @@ const App = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="/logout" element={<Logout/>} />
         <Route path="*" element={<ErrorPage/>} />
+        <Route path='/admin' element={<AdminLayout/>}>
+            <Route path="users" element={<AdminUsers/>} />
+            <Route path="contacts" element={<AdminContacts/>} />
+        </Route>
       </Routes>
       <Footer/>
       

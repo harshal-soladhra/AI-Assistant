@@ -18,4 +18,5 @@ const contact = async (req, res, next) => {
   }
 };
 
+
 export default { contact };
