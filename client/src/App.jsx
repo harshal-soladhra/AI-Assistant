@@ -16,6 +16,8 @@ import { ErrorPage } from "./pages/ErrorPage";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
+import {ChatBotButton} from "./components/ChatBotButton";
+
 import { AdminLayout } from "./components/layouts/Admin-Layout";
 import { AdminUsers } from "./pages/AdminUsers";
 import { AdminContacts } from "./pages/AdminContacts";
@@ -65,6 +67,7 @@ const App = () => {
       </Routes>
 
       <Footer />
+      <ChatBotButton />
     </BrowserRouter>
   );
 };

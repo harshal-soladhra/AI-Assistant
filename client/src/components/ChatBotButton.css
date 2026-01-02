@@ -1,0 +1,29 @@
+.chatbot-container {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.chatbot-container:hover {
+  transform: scale(1.08);
+}
+
+.chatbot-icon {
+  font-size: 22px;
+}
+
+.chatbot-text {
+  font-weight: 600;
+  font-size: 14px;
+}
