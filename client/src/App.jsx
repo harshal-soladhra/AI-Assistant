@@ -23,14 +23,17 @@ import { AdminServices } from "./pages/AdminServices";
 import { AdminDashboard } from "./pages/AdminDashboard";
 
 import UserDashboard from "./pages/UserDashboard";
+import Chat from "./pages/Chat";
 import AdminRoute from "./components/AdminRoute";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Toaster } from "@/components/ui/toaster";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark"/>
+      <Toaster />
 
       <Routes>
         {/* Public */}
@@ -41,10 +44,10 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
-
         {/* User Dashboard */}
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/chat" element={<Chat />} />
         </Route>
 
         {/* Admin */}

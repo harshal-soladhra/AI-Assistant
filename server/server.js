@@ -1,5 +1,6 @@
-import express from "express"
 import dotenv from "dotenv";
+dotenv.config();
+import express from "express"
 import cors from "cors"
 
 import authRouter from "./router/auth-router.js"
@@ -11,8 +12,8 @@ import errorMiddleware from "./middlewares/error-middleware.js";
 import adminRouter from "./router/admin-router.js";
 
 import userRoutes from "./router/user-router.js";
-
-dotenv.config();
+import conversationRouter from "./router/conversation-router.js";
+import messageRouter from "./router/message-router.js";
 
 const app = express()
 
@@ -36,6 +37,8 @@ app.use("/api/data",serviceRouter)
 app.use("/api/admin",adminRouter)
 
 app.use("/api/user", userRoutes);
+app.use("/api/conversations", conversationRouter);
+app.use("/api/messages", messageRouter);
 
 
 app.use(errorMiddleware)

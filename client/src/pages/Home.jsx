@@ -21,13 +21,24 @@ export const Home = () => {
               tailored to meet your unique learning needs.
             </p>
             <div className="hero-buttons">
-              <Link to="/register" className="btn-primary">
+              <Link
+                to={localStorage.getItem("token") ? "/service" : "/register"}
+                className="btn-primary"
+              >
                 Connect Now
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </Link>
-              <Link to="/about" className="btn-secondary">Learn More</Link>
+
+              <Link to="/about" className="btn-secondary">
+                Learn More
+              </Link>
             </div>
           </div>
           <div className="hero-image">
@@ -132,7 +143,7 @@ export const Home = () => {
               your skills thrive in the digital age.
             </p>
             <div className="cta-buttons">
-              <Link to="/register" className="btn-primary">
+              <Link to={localStorage.getItem("token") ? "/contact" : "/register"} className="btn-primary">
                 Contact Now
                 <svg viewBox="0 0 24 24" fill="none">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
