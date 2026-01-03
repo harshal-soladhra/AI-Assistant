@@ -1,0 +1,177 @@
+# 🎓 EduNova - AI-Powered E-Learning Platform
+
+Full-stack MERN application with AI tutor integration for QGenii AI Developer Internship.
+
+## ✨ Features
+
+- 🤖 **AI Tutor** – Real-time, context-aware chat powered by SambaNova LLM  
+- 👥 **User Management** - Register, login, JWT authentication
+- 📚 **Course System** - Browse, enroll, track progress
+- 🔐 **Admin Panel** - Manage users, courses, contacts
+- 💬 **Contact Form** - With validation and database storage
+- 📱 **Responsive Design** - Mobile-first dark theme
+
+## 🛠️ Tech Stack
+
+**Frontend:** React, React Router, CSS3,tailwindcss  
+**Backend:** Node.js, Express.js, MongoDB, Mongoose  
+**AI:**SambaNova Cloud (Large Language Models)
+**Auth:** JWT, bcryptjs  
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js v16+
+- MongoDB
+- SambaNova API Key
+
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/harshal-soladhra/AI-Assistant.git
+
+# Install server dependencies
+cd server
+npm install
+
+# Install client dependencies
+cd ../client
+npm install
+```
+
+### Environment Setup
+
+Create `server/.env`:
+```env
+MONGO_URI=your_monodb_uri
+PORT=3000
+JWT_SECRET=your_jwt_secret
+SAMBANOVA_API_KEY=your_sambanova_api
+```
+
+### Run Application
+
+**Terminal 1 - Backend:**
+```bash
+cd server
+npm run dev
+```
+
+**Terminal 2 - Frontend:**
+```bash
+cd client
+npm run dev
+```
+
+- Backend: `http://localhost:3000`
+- Frontend: `http://localhost:5173`
+
+## 📡 API Endpoints
+
+### Authentication
+```http
+POST   /api/auth/register        # Register a new user
+POST   /api/auth/login           # Login user
+GET    /api/auth/user            # Get logged-in user data (protected)
+```
+
+### AI Tutor
+```http
+GET     /api/conversations           # Get all conversations (protected)
+POST    /api/conversations           # Create new conversation (protected)
+PUT     /api/conversations/:id       # Update conversation title (protected)
+DELETE  /api/conversations/:id       # Delete conversation (protected)
+
+
+GET     /api/messages/:conversationId   # Get messages of a conversation (protected)
+POST    /api/messages                   # Send user message (protected)
+POST    /api/messages/chat              # AI chat response (protected)
+    
+```
+
+### Courses
+```http
+GET    /api/data/service        # Get all available courses
+POST   /api/user/enroll         # Enroll in a course (protected)
+GET    /api/user/my-courses     # Get enrolled courses of logged-in user (protected)
+
+```
+
+### Contact
+```http
+POST   /api/form/contact      # Submit contact form
+```
+
+### Admin (Protected)
+
+1= Users
+
+```http
+GET     /api/admin/users        # Get all users
+PATCH   /api/admin/users/:id    # Update user by ID
+DELETE  /api/admin/users/:id    # Delete user by ID
+
+2= Contacts
+
+GET     /api/admin/contacts     # Get all contact messages
+DELETE  /api/admin/contacts/:id # Delete contact message
+
+3=Services (Courses Management)
+
+GET     /api/admin/services         # Get all services/courses
+POST    /api/admin/services         # Create new service/course
+PUT     /api/admin/services/:id     # Update service/course
+DELETE  /api/admin/services/:id     # Delete service/course
+
+4=Dashboard
+
+GET     /api/admin/dashboard        # Get admin dashboard statistics
+
+
+```
+
+
+## 🤖 AI Tutor Implementation
+
+**Real AI Integration** -  Real-time, context-aware chat powered by SambaNova LLM  API  
+**Conversation Storage** - MongoDB with full history  
+**Context-Aware** - Maintains conversation context  
+**Error Handling** - Fallback responses on API failure  
+```javascript
+
+// Example: Send message to AI
+Authorization: Bearer <token>
+
+{
+  "conversationId": "676f1a2b3c4d5e6f7a8b9c0d",
+  "message": "Explain React hooks"
+}
+```
+
+## 🧪 Testing with Postman
+
+1. **Login** to get JWT token
+2. **Create conversation** - Copy the returned `conversationId`
+3. **Send message** - Use the `conversationId` from step 2
+4. **View history** - Get all conversations
+
+## 📝 Key Features for Internship
+
+✅ **Real AI Model** - Google Gemini (not dummy/static)  
+✅ **MongoDB Integration** - All conversations saved  
+✅ **Secure Auth** - JWT with protected routes  
+✅ **Environment Variables** - Proper `.env` usage  
+✅ **Error Handling** - Production-ready code  
+✅ **Clean Architecture** - MVC pattern  
+
+## 👨‍💻 Author
+
+**Your Name**  
+QGenii AI Developer Intern  
+📧 soladhraharshal@gmail.com
+🔗 [GitHub](https://github.com/harshal-soladhra/) | [LinkedIn](https://www.linkedin.com/in/harshal-soladhra-12848b322/)
+
+
+**Assignment Completed:** December 2024  
+**Organization:** QGenii - AI Powered Education Platform  
+**Tech Stack:** MERN +  SambaNova LLM  API
