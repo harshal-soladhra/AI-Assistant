@@ -157,7 +157,6 @@ Authorization: Bearer <token>
 
 ## 📝 Key Features for Internship
 
-✅ **Real AI Model** - Google Gemini (not dummy/static)  
 ✅ **MongoDB Integration** - All conversations saved  
 ✅ **Secure Auth** - JWT with protected routes  
 ✅ **Environment Variables** - Proper `.env` usage  
